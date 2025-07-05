@@ -9,6 +9,7 @@ const Spinner = () => (
     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
   </svg>
 );
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 function App() {
   // State for form inputs
@@ -38,7 +39,7 @@ function App() {
     setBusinessData(null); // Clear old data
 
     try {
-      const response = await fetch('http://localhost:3001/api/business-data', {
+      const response = await fetch(`${API_URL}/api/business-data`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -57,7 +58,7 @@ function App() {
     setIsRegenerating(true);
     try {
       const params = new URLSearchParams({ name: formData.name, location: formData.location });
-      const response = await fetch(`http://localhost:3001/api/regenerate-headline?${params}`);
+      const response = await fetch(`${API_URL}/api/regenerate-headline?${params}`);
       if (!response.ok) throw new Error('Failed to regenerate headline.');
       const data = await response.json();
       setBusinessData(prev => ({ ...prev, headline: data.headline }));
