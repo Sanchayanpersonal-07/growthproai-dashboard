@@ -54,5 +54,5 @@ The frontend development server will be running on `http://localhost:5173` (or a
 ---
 ## (Optional) Deployed Links
 
-- **Frontend (Vercel):** 
-- **Backend (Render):** 
+- **Frontend (Vercel):** https://growthproai-dashboard-beige.vercel.app/
+- **Backend (Render):** https://growthproaibackend-812z.onrender.com
